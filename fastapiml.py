@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
 import joblib
+import pandas as pd
 
 # Generate sample data
 X, y = make_classification(n_samples=1000, n_features=6, n_informative=2,
@@ -33,5 +34,6 @@ plt.show()
 
 print(f"Training accuracy: {train_score:.2f}")
 print(f"Testing accuracy: {test_score:.2f}")
+
 
 model= joblib.dump(model, 'C:/Users/rohan/fastapiml/model.joblib')
