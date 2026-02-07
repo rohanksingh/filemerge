@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>kdb+ WebSocket Test</title>
+</head>
+<body>
+  <h2>kdb+ WebSocket Test</h2>
+  <button onclick="sendReq()">Get Data</button>
+  <pre id="out"></pre>
+
+  <script>
+    let ws = new WebSocket("ws://localhost:5042");
+
+    ws.onopen = () => {
+      document.getElementById("out").textContent = "Connected to kdb+";
+    };
+
+    ws.onmessage = (msg) => {
+      document.getElementById("out").textContent =
+        "Response:\n" + msg.data;
+    };
+
+    ws.onerror = (err) => {
+      document.getElementById("out").textContent =
+        "WebSocket error";
+    };
+
+    function sendReq() {
+      console.log("sending request");
+      ws.send(JSON.stringify({
+        hist: ["AAPL", "2023.01.01"]
+      }));
+    }
+  </script>
+</body>
+</html>
