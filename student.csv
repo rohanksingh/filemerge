@@ -1,0 +1,4 @@
+student_id,first_name,last_name,email,major_dept_id
+101,Rohan,Kumar,rohan@uni.edu,10
+102,Asha,Shah,asha@uni.edu,10
+103,Neel,Patel,neel@uni.edu,20
